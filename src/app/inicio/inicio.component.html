@@ -67,6 +67,10 @@
                 <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
                 <p class="card-text mt-3">{{item.texto}}</p>
               <p class="card-text"><small class="text-muted">{{item.data | date: "dd/MM/yyyy"}} às {{item.data | date: "HH:mm"}} </small></p>
+
+              <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+              <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
+              
               </div>
           </div>
         </div>
@@ -81,6 +85,7 @@
                 <p class="card-text mt-3">{{item.texto}}</p>
               <p class="card-text"><small class="text-muted">{{item.data | date: "dd/MM/yyyy"}} às {{item.data | date: "HH:mm"}} </small></p>
                 <p class="card-text"><small class="text-muted"> by: {{item.usuario.nome}}</small></p>
+          
               </div>
           </div>
         </div>
@@ -119,10 +124,9 @@
             <option *ngFor="let item of listaTemas" value="{{item.id}}">{{item.descricao}}</option>
         </select>
         </div>
-
-
-
         </div>
+
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           <button type="button" class="btn btn-success" (click)="publicar()" data-dismiss="modal">Publicar</button>
